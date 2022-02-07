@@ -97,6 +97,12 @@ namespace Mission6.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("Completed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("TEXT");
 

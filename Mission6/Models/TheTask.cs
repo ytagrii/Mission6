@@ -17,5 +17,7 @@ namespace Mission6.Models
         [Required]
         public int QuadrantId { get; set; }
         public Quadrant Quadrant { get; set; }
+        public bool Completed { get; set; }
+        public string Description { get; set; }
     }
 }

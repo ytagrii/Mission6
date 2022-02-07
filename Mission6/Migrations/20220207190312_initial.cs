@@ -41,7 +41,9 @@ namespace Mission6.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     DueDate = table.Column<DateTime>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
-                    QuadrantId = table.Column<int>(nullable: false)
+                    QuadrantId = table.Column<int>(nullable: false),
+                    Completed = table.Column<bool>(nullable: false),
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

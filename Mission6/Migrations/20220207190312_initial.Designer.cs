@@ -9,7 +9,7 @@ using Mission6.Models;
 namespace Mission6.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20220207184519_initial")]
+    [Migration("20220207190312_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,6 +98,12 @@ namespace Mission6.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Completed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("TEXT");
