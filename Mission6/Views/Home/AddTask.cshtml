@@ -1,3 +1,51 @@
 ﻿@{
     ViewData["Title"] = "Add Task";
 }
+@model TheTask
+<div>
+    <div class="text-center">
+        <br />
+        <h1>Add Tasks</h1>
+        <br />
+    </div>
+    <div>
+        <form method="post">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label asp-for="Description" >Task</label>
+                    <br />
+                    <input asp-for="Description" class="form-control" />
+                </div>
+                <div class="col-6 form-group">
+                    <label asp-for="DueDate">Due Date</label>
+                    <br />
+                    <input asp-for="DueDate" class="form-control" />
+                </div>
+                <div class="col-6 form-group">
+                    <label asp-for="QuadrantId">Quadrant</label>
+                    <br />
+                    <select asp-for="DueDate" class="form-control">
+
+                    </select>
+                </div>
+                <div class="col-6 form-group">
+                    <label asp-for="CategoryId">Category</label>
+                    <br />
+                    <select asp-for="CategoryId" class="form-control">
+                    </select>
+                </div>
+                <div class="col-6 form-group">
+                    <label asp-for="Completed">Completed</label>
+                    <br />
+                    <select asp-for="Completed" class="form-control">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </div>
+                <div class="col-12 form-group">
+                    <input type="submit" class="btn btn-primary btn-large" value="Save Task" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
