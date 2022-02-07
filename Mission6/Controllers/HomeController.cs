@@ -23,16 +23,11 @@ namespace Mission6.Controllers
         }
 
         [HttpGet]
-        public IActionResult AllTask()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public IActionResult AddTask()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult AddTask(TheTask ar)
         {
@@ -40,6 +35,15 @@ namespace Mission6.Controllers
             coolContext.SaveChanges();
 
             return View("ConfirmationPage");
+        }
+
+        [HttpGet]
+        public IActionResult AllTask()
+        {
+            var coolData = coolContext.task
+                .Where(x => x.Completed == false)
+                .ToList();
+            return View(coolData);
         }
 
         public IActionResult Delete()
