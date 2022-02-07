@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission6.Models;
 
@@ -44,6 +45,8 @@ namespace Mission6.Controllers
         public IActionResult AllTask()
         {
             var coolData = coolContext.task
+                .Include( y => y.Category)
+                .Include(y => y.Quadrant)
                 .Where(x => x.Completed == false)
                 .ToList();
             return View(coolData);
