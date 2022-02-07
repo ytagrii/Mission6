@@ -26,12 +26,20 @@
                     <label asp-for="QuadrantId">Quadrant</label>
                     <br />
                     <select asp-for="DueDate" class="form-control">
+                        @foreach (Quadrant q in ViewBag.Quadrants)
+                        {
+                            <option value="@q.QuadrantId">@q.QuadrantName</option>
+                        }
                     </select>
                 </div>
                 <div class="col-6 form-group">
                     <label asp-for="CategoryId">Category</label>
                     <br />
                     <select asp-for="CategoryId" class="form-control">
+                        @foreach (Category c in ViewBag.Categories)
+                        {
+                            <option value="@c.CategoryId">@c.CategoryName</option>
+                        }
                     </select>
                 </div>
                 <div class="col-6 form-group">
@@ -43,6 +51,7 @@
                     </select>
                 </div>
                 <div class="col-12 form-group">
+                    <br /><br />
                     <input type="submit" class="btn btn-primary btn-large" value="Save Task" />
                 </div>
             </div>
