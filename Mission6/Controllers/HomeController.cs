@@ -37,7 +37,7 @@ namespace Mission6.Controllers
             coolContext.Add(TT);
             coolContext.SaveChanges();
 
-            return View("ConfirmationPage");
+            return View("Confirmation");
         }
 
         [HttpGet]
