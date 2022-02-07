@@ -13,7 +13,7 @@ namespace Mission6.Models
 
         }
 
-        public DbSet<Task> task { get; set; }
+        public DbSet<TheTask> task { get; set; }
         public DbSet<Category> categories { get; set; }
         public DbSet<Quadrant> quadrant{ get; set; }
 
