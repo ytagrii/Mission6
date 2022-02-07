@@ -25,6 +25,9 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
+            ViewBag.Categories = coolContext.categories.ToList();
+            ViewBag.Quadrants = coolContext.quadrant.ToList();
+
             return View();
         }
 
