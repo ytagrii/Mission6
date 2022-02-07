@@ -29,9 +29,9 @@ namespace Mission6.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTask(TheTask ar)
+        public IActionResult AddTask(TheTask TT)
         {
-            coolContext.Add(ar);
+            coolContext.Add(TT);
             coolContext.SaveChanges();
 
             return View("ConfirmationPage");
@@ -55,7 +55,17 @@ namespace Mission6.Controllers
             var taskie = coolContext.task.Single(y => y.TaskId == taskieId);
 
             return View("Form", taskie);
-        } 
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TheTask TT)
+        {
+            coolContext.Update(TT);
+            coolContext.SaveChanges();
+
+            return RedirectToAction("AllTask");
+        }
+
         public IActionResult Delete()
         {
             return View();
