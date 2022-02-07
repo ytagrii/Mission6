@@ -11,15 +11,44 @@ namespace Mission6.Controllers
 {
     public class HomeController : Controller
     {
-
-        public HomeController()
+        private TaskContext coolContext { get; set; }
+        public HomeController(TaskContext theData)
         {
-
+            coolContext = theData;
         }
 
         public IActionResult Index()
         {
             return View();
         }
-    }
+
+        [HttpGet]
+        public IActionResult AllTask()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddTask()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddTask(TheTask ar)
+        {
+            coolContext.Add(ar);
+            coolContext.SaveChanges();
+
+            return View("ConfirmationPage");
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
+        }
+
+        public IActionResult EditTask()
+        {
+            return View();
+        }
 }
