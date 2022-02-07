@@ -46,12 +46,17 @@ namespace Mission6.Controllers
             return View(coolData);
         }
 
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult EditTask(int taskieId)
         {
-            return View();
-        }
+            ViewBag.Categories = coolContext.categories.ToList();
+            ViewBag.Quadrants = coolContext.quadrant.ToList();
 
-        public IActionResult EditTask()
+            var taskie = coolContext.task.Single(y => y.TaskId == taskieId);
+
+            return View("Form", taskie);
+        } 
+        public IActionResult Delete()
         {
             return View();
         }
