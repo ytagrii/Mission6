@@ -60,11 +60,11 @@ namespace Mission6.Controllers
 
             var taskie = coolContext.task.Single(y => y.TaskId == id);
 
-            return View("AddTask", taskie);
+            return View(taskie);
         }
 
         [HttpPost]
-        public IActionResult Edit(TheTask TT)
+        public IActionResult EditTask(TheTask TT)
         {
             coolContext.Update(TT);
             coolContext.SaveChanges();
