@@ -31,6 +31,7 @@
 
             <td>
                 <form method="post">
+                    <input type="hidden" asp-for="@x.TaskId"/>
                     <select asp-for="@x.Completed">
                         <option value="false">Not Completed</option>
                         <option value="true">Completed</option>

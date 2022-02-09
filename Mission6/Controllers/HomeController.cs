@@ -51,6 +51,20 @@ namespace Mission6.Controllers
                 .ToList();
             return View(coolData);
         }
+        [HttpPost]
+        public IActionResult AllTask(TheTask TT)
+        {
+            coolContext.Update(TT);
+            coolContext.SaveChanges();
+
+            var coolData = coolContext.task
+                .Include(y => y.Category)
+                .Include(y => y.Quadrant)
+                .Where(x => x.Completed == false)
+                .ToList();
+
+            return View(coolData);
+        }
 
         [HttpGet]
         public IActionResult EditTask(int id)
