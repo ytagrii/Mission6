@@ -115,13 +115,16 @@
             <td class="tg-958c">
                 <span style="font-weight:bold">Quadrant 1</span><br>
                 @*Building Important/Urgent Table*@
+
                 <table class="table table-dark table-striped">
                     <thead>
                         <tr>
                             <th>Task</th>
                             <th>Due Date</th>
                             <th>Category</th>
-                            <th>Quadrant</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,10 +136,10 @@
                                     <td>@x.Description</td>
                                     <td>@x.DueDate</td>
                                     <td>@x.Category.CategoryName</td>
-                                    <td>@x.Quadrant.QuadrantName</td>
                                     <!--Check the routing tag if errors pop up-->
-                                    <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    <td><a asp-controller="Home" asp-action="Completed" asp-route-id="@x.TaskId">Complete</a></td>
                                 </tr>
                             }
                         }
