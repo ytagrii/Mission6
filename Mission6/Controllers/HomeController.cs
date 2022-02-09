@@ -41,16 +41,6 @@ namespace Mission6.Controllers
             return View("Confirmation");
         }
 
-        [HttpGet]
-        public IActionResult AllTask()
-        {
-            var coolData = coolContext.task
-                .Include( y => y.Category)
-                .Include(y => y.Quadrant)
-                .Where(x => x.Completed == false)
-                .ToList();
-            return View(coolData);
-        }
         [HttpPost]
         public IActionResult AllTask(TheTask TT)
         {
