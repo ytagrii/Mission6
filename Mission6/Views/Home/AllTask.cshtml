@@ -3,49 +3,13 @@
 }
 
 @model List<TheTask>
-
-@*Building Important/Urgent Table*@
-<table class="table table-dark table-striped">
-    <thead>
-        <tr>
-            <th>Task</th>
-            <th>Due Date</th>
-            <th>Category</th>
-            <th>Quadrant</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var x in Model)
-        {
-            @if (x.Quadrant.QuadrantName == "Important/Urgent")@*Change this comparison per quadrant*@
-            {
-        <tr>
-            <td>@x.Description</td>
-            <td>@x.DueDate</td>
-            <td>@x.Category.CategoryName</td>
-            <td>@x.Quadrant.QuadrantName</td>
-            <!--Check the routing tag if errors pop up-->
-            <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
-            <td><a asp-controller="Home" asp-action="Completed" asp-route-id="@x.TaskId">Complete</a></td>
-        </tr>
-            }
-        }
-    </tbody>
-</table>
-@*Building Important/Urgent Table*@
-
-
-
-
-
 <style type="text/css">
     .tg {
         border-collapse: collapse;
         border-spacing: 0;
     }
 
-        .tg td {
+        .tg .timtam {
             border-color: black;
             border-style: solid;
             border-width: 1px;
@@ -56,7 +20,7 @@
             word-break: normal;
         }
 
-        .tg th {
+        .tg .banana {
             border-color: black;
             border-style: solid;
             border-width: 1px;
@@ -101,32 +65,40 @@
 <table class="tg">
     <thead>
         <tr>
-            <th class="tg-cnwr" colspan="3">STEPHEN COVEY'S TIME MANAGEMENT MATRIX</th>
+            <th class="tg-cnwr timtam" colspan="3">STEPHEN COVEY'S TIME MANAGEMENT MATRIX</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td class="tg-31ua"></td>
-            <td class="tg-cnwr">URGENT</td>
-            <td class="tg-cnwr">NOT URGENT</td>
+            <td class="tg-31ua timtam"></td>
+            <td class="tg-cnwr timtam">URGENT</td>
+            <td class="tg-cnwr timtam">NOT URGENT</td>
         </tr>
         <tr>
-            <td class="tg-oyd9">IMPORTANT</td>
-            <td class="tg-958c">
+            <td class="tg-oyd9 timtam">IMPORTANT</td>
+            <td class="tg-958c timtam">
                 <span style="font-weight:bold">Quadrant 1</span><br>
+                @*************************************************@
                 @*Building Important/Urgent Table*@
-
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Task</th>
-                            <th>Due Date</th>
-                            <th>Category</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
+                <table class="table table-striped">
+                    @*If statement to determine there is a value for this table*@
+                    @foreach (var y in Model)
+                    {
+                        @if (y.Quadrant.QuadrantName == "Important/Urgent")
+                        {
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Due Date</th>
+                                    <th>Category</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            break;
+                        }
+                    }
                     <tbody>
                         @foreach (var x in Model)
                         {
@@ -146,12 +118,143 @@
                     </tbody>
                 </table>
                 @*Building Important/Urgent Table*@
-            <td class="tg-958c"><span style="font-weight:bold">Quadrant 2</span><br><br>Relationship<br>Planning<br>Recreation</td>
+                @*************************************************@
+            <td class="tg-958c timtam">
+                <span style="font-weight:bold">Quadrant 2</span><br>
+                @*************************************************@
+                @*Building Important/Urgent Table*@
+                <table class="table table-striped">
+                    @*If statement to determine there is a value for this table*@
+                    @foreach (var y in Model)
+                    {
+                        @if (y.Quadrant.QuadrantName == "Important/Not Urgent")
+                        {
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Due Date</th>
+                                    <th>Category</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            break;
+                        }
+                    }
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            @if (x.Quadrant.QuadrantName == "Important/Not Urgent")
+                            {
+                                <tr>
+                                    <td>@x.Description</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <!--Check the routing tag if errors pop up-->
+                                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    <td><a asp-controller="Home" asp-action="Completed" asp-route-id="@x.TaskId">Complete</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                @*Building Important/Urgent Table*@
+                @*************************************************@
+            </td>
         </tr>
         <tr>
-            <td class="tg-oyd9">NOT IMPORTANT</td>
-            <td class="tg-958c"><span style="font-weight:bold">Quadrant 3</span><br><br>Interruption<br>Some Phone Calls<br>Some Mail<br>Some Reports</td>
-            <td class="tg-958c"><span style="font-weight:bold">Quadrant 4</span><br><br>Busy Work<br>Some Phone Calls<br>Some Mail<br>Time Wasters</td>
+            <td class="tg-oyd9 timtam">NOT IMPORTANT</td>
+            <td class="tg-958c timtam">
+                <span style="font-weight:bold">Quadrant 3</span><br>
+                @*************************************************@
+                @*Building Important/Urgent Table*@
+                <table class="table table-striped">
+                    @*If statement to determine there is a value for this table*@
+                    @foreach (var y in Model)
+                    {
+                        @if (y.Quadrant.QuadrantName == "Not Important/Urgent")
+                        {
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Due Date</th>
+                                    <th>Category</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            break;
+                        }
+                    }
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            @if (x.Quadrant.QuadrantName == "Not Important/Urgent")
+                            {
+                                <tr>
+                                    <td>@x.Description</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <!--Check the routing tag if errors pop up-->
+                                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    <td><a asp-controller="Home" asp-action="Completed" asp-route-id="@x.TaskId">Complete</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                @*Building Important/Urgent Table*@
+                @*************************************************@
+            </td>
+            
+            <td class="tg-958c timtam">
+                <span style="font-weight:bold">Quadrant 4</span><br>
+                @*************************************************@
+                @*Building Important/Urgent Table*@
+                <table class="table table-striped">
+                    @*If statement to determine there is a value for this table*@
+                    @foreach (var y in Model)
+                    {
+                        @if (y.Quadrant.QuadrantName == "Not Important/Not Urgent")
+                        {
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Due Date</th>
+                                    <th>Category</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            break;
+                        }
+                    }
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            @if (x.Quadrant.QuadrantName == "Not Important/Not Urgent")
+                            {
+                                <tr>
+                                    <td>@x.Description</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <!--Check the routing tag if errors pop up-->
+                                    <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    <td><a asp-controller="Home" asp-action="Completed" asp-route-id="@x.TaskId">Complete</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                @*Building Important/Urgent Table*@
+                @*************************************************@
+            </td>
         </tr>
     </tbody>
 </table>
