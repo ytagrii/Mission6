@@ -28,16 +28,6 @@
             <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
             <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
             <td><a asp-controller="Home" asp-action="Completed" asp-route-id="@x.TaskId">Complete</a></td>
-            <td>
-                <form method="post">
-                    <input type="hidden" asp-for="@x.TaskId" />
-                    <select asp-for="@x.Completed">
-                        <option value="false">Not Completed</option>
-                        <option value="true">Completed</option>
-                    </select>
-                    <button type="submit">Confirm</button>
-                </form>
-            </td>
         </tr>
             }
         }
