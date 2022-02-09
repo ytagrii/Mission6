@@ -72,9 +72,20 @@ namespace Mission6.Controllers
             return RedirectToAction("AllTask");
         }
 
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult Delete(int taskieId)
         {
-            return View();
+            var taskie = coolContext.task.Single(y => y.TaskId == taskieId);
+            return View(taskie);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TheTask TT)
+        {
+            coolContext.task.Remove(TT);
+            coolContext.SaveChanges();
+
+            return RedirectToAction("AllTask");
         }
     }
 }
