@@ -176,7 +176,7 @@
     <tbody>
         @foreach (var x in Model)
         {
-            @if (x.Quadrant.QuadrantName == "Important/Urgent")
+            @if (x.Quadrant.QuadrantName == "Important/Urgent")@*Change this comparison per quadrant*@
             {
                 <tr>
                     <td>@x.Description</td>
