@@ -15,17 +15,125 @@
     <tbody>
         @foreach (var x in Model)
         {
-        <tr>
-            <td>@x.Description</td>
-            <td>@x.DueDate</td>
+            <tr>
+                <td>@x.Description</td>
+                <td>@x.DueDate</td>
 
-            <td>@x.Category.CategoryName</td>
-            <td>@x.Quadrant.QuadrantName</td>
+                <td>@x.Category.CategoryName</td>
+                <td>@x.Quadrant.QuadrantName</td>
 
             <!--Check the routing tag if errors pop up-->
             <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
             <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
         </tr>
         }
+    </tbody>
+</table>
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Stephens Coveys Time Managment Matrix</h2>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .tg td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg .tg-31ua {
+            background-color: #ffcc67;
+            border-color: inherit;
+            text-align: left;
+            vertical-align: top
+        }
+
+        .tg .tg-vrck {
+            background-color: #ffcc67;
+            border-color: inherit;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: top
+        }
+
+        .tg .tg-cnwr {
+            background-color: #ffcc67;
+            border-color: inherit;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: top
+        }
+
+        .tg .tg-oyd9 {
+            background-color: #ffcc67;
+            border-color: inherit;
+            font-weight: bold;
+            text-align: left;
+            vertical-align: top
+        }
+
+        .tg .tg-958c {
+            background-color: #ffcc67;
+            border-color: inherit;
+            text-align: center;
+            vertical-align: top
+        }
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 503px">
+    <colgroup>
+        <col style="width: 101px">
+        <col style="width: 201px">
+        <col style="width: 201px">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="tg-vrck" colspan="3">STEPHEN COVEY'S TIME MANAGEMENT MATRIX</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="tg-31ua"></td>
+            <td class="tg-cnwr">URGENT</td>
+            <td class="tg-cnwr">NOT URGENT</td>
+        </tr>
+        <tr>
+            <td class="tg-oyd9">IMPORTANT</td>
+            <td class="tg-958c"><span style="font-weight:bold">Quadrant 1</span><br><br>Crises<br>Pressing Problems<br>Project with Deadlines</td>
+            <td class="tg-958c"><span style="font-weight:bold">Quadrant 2</span><br><br>Relationship<br>Planning<br>Recreation</td>
+        </tr>
+        <tr>
+            <td class="tg-oyd9">NOT IMPORTANT</td>
+            <td class="tg-958c"><span style="font-weight:bold">Quadrant 3</span><br><br>Interruption<br>Some Phone Calls<br>Some Mail<br>Some Reports</td>
+            <td class="tg-958c"><span style="font-weight:bold">Quadrant 4</span><br><br>Busy Work<br>Some Phone Calls<br>Some Mail<br>Time Wasters</td>
+        </tr>
     </tbody>
 </table>
