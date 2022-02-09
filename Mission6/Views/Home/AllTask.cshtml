@@ -22,10 +22,10 @@
                 <td>@x.Category.CategoryName</td>
                 <td>@x.Quadrant.QuadrantName</td>
 
-                <!--Check the routing tag if errors pop up-->
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
-            </tr>
+            <!--Check the routing tag if errors pop up-->
+            <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+        </tr>
         }
     </tbody>
 </table>
