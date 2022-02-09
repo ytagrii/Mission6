@@ -53,14 +53,14 @@ namespace Mission6.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditTask(int taskieId)
+        public IActionResult EditTask(int taskid)
         {
             ViewBag.Categories = coolContext.categories.ToList();
             ViewBag.Quadrants = coolContext.quadrant.ToList();
 
-            var taskie = coolContext.task.Single(y => y.TaskId == taskieId);
+            var taskie = coolContext.task.Single(y => y.TaskId == taskid);
 
-            return View("Form", taskie);
+            return View("AddTask", taskie);
         }
 
         [HttpPost]
@@ -73,9 +73,9 @@ namespace Mission6.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int taskieId)
+        public IActionResult Delete(int taskid)
         {
-            var taskie = coolContext.task.Single(y => y.TaskId == taskieId);
+            var taskie = coolContext.task.Single(y => y.TaskId == taskid);
             return View(taskie);
         }
 
