@@ -101,5 +101,13 @@ namespace Mission6.Controllers
 
             return RedirectToAction("AllTask");
         }
+
+        [HttpGet]
+        public IActionResult Completed(int id)
+        {
+            coolContext.task.Single(y => y.TaskId == id).Completed = true;
+            coolContext.SaveChanges();
+            return RedirectToAction("AllTask");
+        }
     }
 }
