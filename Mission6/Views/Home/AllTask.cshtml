@@ -10,6 +10,9 @@
             <th>Due Date</th>
             <th>Category</th>
             <th>Quadrant</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +28,16 @@
             <!--Check the routing tag if errors pop up-->
             <td><a asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TaskId">Edit</a></td>
             <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+
+            <td>
+                <form method="post">
+                    <select asp-for="@x.Completed">
+                        <option value="false">Not Completed</option>
+                        <option value="true">Completed</option>
+                    </select>
+                    <button type="submit">Confirm</button>
+                </form>
+            </td>
         </tr>
         }
     </tbody>
